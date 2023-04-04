@@ -1,3 +1,4 @@
+# Shopping_Cart
 Le but de reddux ici est de gerer l'état en donnant à nos composants l'état dont il a besoin via un store central.
 Redux stocke tout l'état de notre application dans une arborescence d'objets immuable.
 je vais utiliser cette particulariter pour simuler un site de vente de jeux video,
