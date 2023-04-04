@@ -1,46 +1,35 @@
-# Getting Started with Create React App
+Le but de reddux ici est de gerer l'état en donnant à nos composants l'état dont il a besoin via un store central.
+Redux stocke tout l'état de notre application dans une arborescence d'objets immuable.
+je vais utiliser cette particulariter pour simuler un site de vente de jeux video,
+ou on pourra ajouter supprimer des products au magasin.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Step 1:
 
-## Available Scripts
+Generer nouveau projet react avec un template typescript avec: "npx create-react-app shopping-cart --template typescript"
 
-In the project directory, you can run:
+il faut ensuite installer les paquets manquant, je veux gerer la state aved reddux donc j'install reddux avec: "npm install @reduxjs/toolkit" ainsi que: "npm install react-redux @types/react-redux"
 
-### `npm start`
+Step 2:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+créer un components ProductsList ou on mettra une array avec tous les jeux a vendre. j'ai ensuite fait un form pour ajouter des jeux dans l'array.
+apres cela il fallait les relié avec un "store" avec reddux qui a besoin d'un reducteur comme argument,
+un reducteur c'est une fonction pure qui recoit l'ancien état de la state et une action comme argument il va donc falloir faire notre reducteur et notre store
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Step3:
 
-### `npm test`
+ensuite j'ai du faire un reduc slice pour remplacer le form, pour ensuite connecter react avec le reddux store avec useselector
+il fallait ensuite faire la traitement du form (pour qu'il marche que se soit pas just envoyer dans l'url),
+puis faire le gestionnaire d'envoie de formulaire, pour qu'il mettent a jour l'état du state
+nous avons donc un formulaire avec reddux pour ajouter et modifier dans la state, ainsi je peux ajouter des nouveau jeux sur l'array en react
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Step4:
 
-### `npm run build`
+maintenant que je peux ajouter je devrais aussi supprimer pour se faire,
+on faire a peux pres la meme chose que pour add mais on utilise l'id pour le payload pour savoir lequel supprimé.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Conclusion:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Lors de cet experience j'ai appris a utiliser reddux pour créer un store une sorte d'arbre de state qui fonctionne grace a un reducteur pour gerer les actions de add et remove
+sans que ca n'atteigne le store puisque le store est changé par le reducteur.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
